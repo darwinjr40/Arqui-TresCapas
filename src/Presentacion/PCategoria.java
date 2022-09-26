@@ -64,6 +64,7 @@ public final class PCategoria extends javax.swing.JFrame {
         lblMessage = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableGategoria = new javax.swing.JTable();
+        btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestionar Categoria");
@@ -159,7 +160,6 @@ public final class PCategoria extends javax.swing.JFrame {
                 .addGap(9, 9, 9))
         );
 
-        tableGategoria.setBackground(new java.awt.Color(255, 255, 255));
         tableGategoria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tableGategoria.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         tableGategoria.setModel(new javax.swing.table.DefaultTableModel(
@@ -185,6 +185,14 @@ public final class PCategoria extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableGategoria);
 
+        btnExit.setText("Cerrar");
+        btnExit.setToolTipText("");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitonClickAgregar(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -195,11 +203,17 @@ public final class PCategoria extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
                 .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnExit)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(7, 7, 7)
+                .addComponent(btnExit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,6 +274,10 @@ public final class PCategoria extends javax.swing.JFrame {
         lblMessage.setText(message);
     }//GEN-LAST:event_onClickEliminar
 
+    private void btnExitonClickAgregar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitonClickAgregar
+        this.setVisible(false);
+    }//GEN-LAST:event_btnExitonClickAgregar
+
     
     public static void main(String[] args) {
         DCategoria dc = new DCategoria("", "");
@@ -271,6 +289,7 @@ public final class PCategoria extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

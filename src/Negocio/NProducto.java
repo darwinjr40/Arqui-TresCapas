@@ -8,7 +8,7 @@ public class NProducto {
     DProducto dp;
 
     public NProducto() {
-        this(null);
+        this(new DProducto("", "", 0, "") );
     }
 
     public NProducto(DProducto datoCategoria) {
@@ -22,19 +22,13 @@ public class NProducto {
     public void setDato(DProducto dp) {
         this.dp = dp;
     }
-//    
+    
+    public Object [] getById(String id) { 
+        return dp.getById(id);
+    }  
     public ArrayList<Object []> getlista() { 
         return dp.getLista();
     }  
-//    
-//    public ArrayList<NProducto> getlista1() { 
-//        ArrayList<DProducto> ld =  dp.getLista();
-//        ArrayList<NProducto> l = new ArrayList<>();        
-//        ld.forEach((DProducto e)->{
-//            l.add(new NProducto(e));
-//        });
-//        return l;
-//    }
     
     public void agregar(String i, String n, double p, String ic){
         dp.agregar(i, n, p, ic);
@@ -48,5 +42,9 @@ public class NProducto {
         dp.eliminar(id);
     }
     
+
+
     
 }
+
+

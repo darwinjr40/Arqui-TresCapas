@@ -77,7 +77,26 @@ public class DProducto {
         this.idCategoria = idCategoria;
     }
     
-    
+    public Object [] getById(String id){
+        String sql = "select * from " + table +" where id=" + id;
+        Object[] r = null;
+        try {
+            PreparedStatement ps = this.db.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                r = (new Object[]{
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getDouble(3),
+                    rs.getString(4)
+                });
+            }                        
+        } catch (SQLException e) {
+            System.out.println(e);
+            message = "****************Algo Salio Mal!**************";
+        }
+        return r;
+    }
     public ArrayList<Object []> getLista(){
         ArrayList<Object []> l = new ArrayList<>();
         String sql = "select * from " + table;
@@ -167,16 +186,17 @@ public class DProducto {
         }
     }
     
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
 //        DProducto a = new DProducto("2", "galleta serrana", 4, "3");
-//        a.agregar("6", "galleta serrana", 5, "4");
-
-//        a.actualizar("2", "3", "galleta serrana", 5, "4");
-//a.eliminar("6");
-//        Object a =  new Object();
-////        a = 1313;
-//        a = 1564;
-//        System.out.println(a);
-    }
+//        System.out.println(a.getById("1")[1]);
+////        a.agregar("6", "galleta serrana", 5, "4");
+//
+////        a.actualizar("2", "3", "galleta serrana", 5, "4");
+////a.eliminar("6");
+////        Object a =  new Object();
+//////        a = 1313;
+////        a = 1564;
+////        System.out.println(a);
+//    }
     
 }

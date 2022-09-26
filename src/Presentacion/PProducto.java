@@ -57,6 +57,7 @@ public final class PProducto extends javax.swing.JFrame {
         lblprecio = new javax.swing.JLabel();
         jcbCategoria = new javax.swing.JComboBox();
         lblCategoria = new javax.swing.JLabel();
+        btnRegistrarCat = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableP = new javax.swing.JTable();
 
@@ -126,6 +127,14 @@ public final class PProducto extends javax.swing.JFrame {
         lblCategoria.setText("Categoria :");
         lblCategoria.setToolTipText("");
 
+        btnRegistrarCat.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnRegistrarCat.setText("R: Categoria");
+        btnRegistrarCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarCatonClickAgregar(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -149,7 +158,9 @@ public final class PProducto extends javax.swing.JFrame {
                                     .addComponent(txtId)
                                     .addComponent(txtNombre)
                                     .addComponent(txtPrecio)
-                                    .addComponent(jcbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jcbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnRegistrarCat))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnRegistrar)
                                 .addGap(33, 33, 33)
@@ -159,7 +170,7 @@ public final class PProducto extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(lblMessage)))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +193,9 @@ public final class PProducto extends javax.swing.JFrame {
                         .addComponent(lblCategoria))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jcbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jcbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegistrarCat))))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrar)
@@ -299,6 +312,12 @@ public final class PProducto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_onClickEliminar
 
+    private void btnRegistrarCatonClickAgregar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarCatonClickAgregar
+        PCategoria pg = new PCategoria(new NCategoria(new DCategoria("", "")));
+        pg.setVisible(true);
+        this.listarCategoria();
+    }//GEN-LAST:event_btnRegistrarCatonClickAgregar
+
     private void listarCategoria() {
         jcbCategoria.setModel(this.toCombo(nc.getlista()));
     }
@@ -314,7 +333,7 @@ public final class PProducto extends javax.swing.JFrame {
     public void listarProducto() {
         ArrayList<Object []> lp = np.getlista();
         this.limpiar();
-        lp.forEach((e) -> {
+        lp.forEach((Object[] e) -> {
             e[3] = this.getCategoria((String)e[3]);
             ((DefaultTableModel) tableP.getModel()).addRow(e);
         });
@@ -348,6 +367,7 @@ public final class PProducto extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnRegistrarCat;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -363,5 +383,8 @@ public final class PProducto extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
 
-
+  
 }
+
+
+
