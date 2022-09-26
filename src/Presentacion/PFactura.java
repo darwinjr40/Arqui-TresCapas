@@ -468,7 +468,7 @@ public final class PFactura extends javax.swing.JFrame {
         } else {
             ComboBoxItem cmb = ((ComboBoxItem)jcbProducto.getSelectedItem());
             Double prc = Double.valueOf(txtPrecio.getText());
-            int ctd = Integer.valueOf(txtCantidad.getText());
+            int ctd = Integer.parseInt(txtCantidad.getText());
             this.productos.add(new Object[]{cmb, prc, ctd, "X"});
             this.listarProductosDynamic();
             monto = monto + (prc * ctd);
@@ -519,7 +519,7 @@ public final class PFactura extends javax.swing.JFrame {
              Object[] e = ls.get(i);
              le[i] = new ComboBoxItem( (String)e[0], (String)e[1]);
         }
-        if (ls.size()>0) {
+        if (!ls.isEmpty()) {
           double e = (double)ls.get(0)[2];
           txtPrecio.setText(String.valueOf(e));
           txtCantidad.setText("1");  
